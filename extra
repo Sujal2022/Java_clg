@@ -1,0 +1,219 @@
+----------------------Set1----------------
+
+----Q1. Write a Java program to create a Rectangle class with length and width as attributes. Create two objects of this class and calculate the area of both rectangles.
+
+class Rectangle {
+    double length;
+    double width;
+
+    Rectangle(double length, double width) 
+    {
+        this.length = length;
+        this.width = width;
+    }
+
+    double calculateArea() 
+    {
+        return length * width;
+    }
+}
+
+ class Ans1 {
+    public static void main(String args[]) 
+    {
+        Rectangle rect1 = new Rectangle(5.0, 4.0);
+        Rectangle rect2 = new Rectangle(7.0, 3.0);
+
+        System.out.println("Area of Rectangle 1: " + rect1.calculateArea());
+        System.out.println("Area of Rectangle 2: " + rect2.calculateArea());
+    }
+}
+
+-----Q2. Write a Java program that passes the current object (this) to another method. Create a class Person with a method compareAge(Person other) that 
+compares the age of the current object with another Person object.
+
+class Person 
+{
+    String name;
+    int age;
+
+    Person(String name, int age) 
+    {
+        this.name = name;
+        this.age = age;
+    }
+
+    void compareAge(Person other) 
+    {
+        if (this.age > other.age)
+        {
+            System.out.println(this.name + " is older than " + other.name);
+        } else if (this.age < other.age) 
+        {
+            System.out.println(this.name + " is younger than " + other.name);
+        } else 
+        {
+            System.out.println(this.name + " and " + other.name + " are of the same age");
+        }
+    }
+}
+
+ class Ans2 {
+    public static void main(String args[]) 
+    {
+        Person person1 = new Person("Alice", 25);
+        Person person2 = new Person("Bob", 30);
+
+        person1.compareAge(person2);
+    }
+}
+
+Q3. Create a class Shape with a method area() that prints "Calculating area". Create a derived class Rectangle that overrides the area() method 
+to calculate and display the area of a rectangle. Test it by creating a Rectangle object.
+
+class Shape 
+
+{    void area() 
+    {
+        System.out.println("Calculating area");
+    }
+}
+
+
+class Rectangle extends Shape 
+{
+    double length;
+    double width;
+
+    
+    Rectangle(double length, double width) 
+    {
+        this.length = length;
+        this.width = width;
+    }
+
+    @Override
+    void area() 
+    {
+        double rectArea = length * width;
+        System.out.println("Area of Rectangle: " + rectArea);
+    }
+}
+
+ class Ans3 {
+    public static void main(String args[]) 
+    {
+        Rectangle rectangle = new Rectangle(5.0, 4.0);
+        rectangle.area();
+    }
+}
+
+---------------------Set 2--------------
+
+Q1. Write a Java program to create a Calculator class with a static method add() that takes two integers and returns their sum. 
+Demonstrate the use of this method without creating an instance of the class.
+
+class Calculator 
+{
+    public static int add(int a, int b) 
+    {
+        return a + b;
+    }
+}
+
+ class Ans1 {
+    public static void main(String args[]) 
+    {
+        int sum = Calculator.add(10, 20);
+        System.out.println("Sum: " + sum);
+    }
+}
+
+Q2. Write a Java program to create three student objects and display their details using the display() method. 
+Display the total number of student objects created using the static method totalStudents().
+
+class Student\
+{
+    String name;
+    int age;
+    static int studentCount = 0; 
+
+
+    Student(String name, int age) 
+    {
+        this.name = name;
+        this.age = age;
+        studentCount++;
+    }
+
+    void display() 
+    {
+        System.out.println("Name: " + name + ", Age: " + age);
+    }
+
+    static void totalStudents() 
+    {
+        System.out.println("Total Students: " + studentCount);
+    }
+}
+
+ class Ans2 {
+    public static void main(String[] args) 
+    {
+        Student student1 = new Student("Alice", 20);
+        Student student2 = new Student("Bob", 22);
+        Student student3 = new Student("Charlie", 19);
+
+        student1.display();
+        student2.display();
+        student3.display();
+
+        Student.totalStudents();
+    }
+}
+
+Q3. Create a class Employee with attributes name and salary, and a method showDetails(). 
+Derive a class Manager that adds an attribute department and a method showDepartment(). Create an object of Manager and call both methods.
+
+class Employee {
+    String name;
+    double salary;
+
+    Employee(String name, double salary) 
+    {
+        this.name = name;
+        this.salary = salary;
+    }
+
+    void showDetails() 
+    {
+        System.out.println("Name: " + name + ", Salary: " + salary);
+    }
+}
+
+
+class Manager extends Employee 
+{
+    String department;
+
+    Manager(String name, double salary, String department) 
+    {
+        super(name, salary); 
+        this.department = department;
+    }
+
+    void showDepartment() 
+    {
+        System.out.println("Department: " + department);
+    }
+}
+
+ class Ans3 {
+    public static void main(String args[]) 
+    { 
+        Manager manager = new Manager("John", 75000, "IT");
+
+        manager.showDetails();
+        manager.showDepartment();
+    }
+}
